@@ -14,9 +14,9 @@ app.get('/', (req, res) => {
 app.get('/data/:id', (req, res) => {
     const idx = req.params.id;
 
-    if (idx < data.length) {
-
-        res.send(data[idx]);
+    if (idx <= data.length) {
+    
+        res.send(data[idx-1]);
     } else {
         res.status(404).json({error: `id ${idx} not found`})
     }
