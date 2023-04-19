@@ -1,3 +1,5 @@
+const image = document.querySelector(img);
+
 // Counter Function Attempt
 function sumScore(data) {
     let totalScore = 0;
