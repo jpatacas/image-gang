@@ -1,6 +1,7 @@
 //  Question 1
 const data = [ {
     id: 1, 
+    image: "/client/assets/VanGogh.jpeg",
     question: "What painting style was used to create this piece?", 
     answers: [
         {id: 1, ans: "Watercolour"},
@@ -11,18 +12,9 @@ const data = [ {
     , 
     correct_ans_id: 3
 },
-{
-    id: 2,
-    question: "Is it raining?",
-    answers: [
-        {id: 1, ans: "Yes"},
-        {id: 2, ans: "No"}, 
-        {id: 3, ans: "Maybe"}
-    ],
-    correct_ans_id: 1
-},
 { // Question 2
-    id: 1, 
+    id: 2,
+    image: "/client/assets/Banksy.jpeg", 
     question: "What is the real name of the artist who painted this?", 
     answers: [
         {id: 1, ans: "James Turrell"},
@@ -34,7 +26,8 @@ const data = [ {
     correct_ans_id: 2
 },
 { // Question 3
-    id: 1, 
+    id: 3, 
+    image: "/client/assets/SalvatorMundi.jpeg",
     question: "How much was this record selling piece Salvator Mundi sold for?", 
     answers: [
         {id: 1, ans: "$325.0 million"},
@@ -46,7 +39,8 @@ const data = [ {
     correct_ans_id: 4
 },
 { // Question 4
-    id: 1, 
+    id: 4, 
+    image: "/client/assets/JohannesVermeer.jpeg",
     question: "Who was responsible for this piece?", 
     answers: [
         {id: 1, ans: "Sandro Botticelli"},
@@ -58,7 +52,8 @@ const data = [ {
     correct_ans_id: 2
 },
 { // Question 5
-    id: 1, 
+    id: 5, 
+    image: "/client/assets/SandroBotticelli.jpeg",
     question: "What year was this piece created in?", 
     answers: [
         {id: 1, ans: "1567"},
@@ -70,7 +65,8 @@ const data = [ {
     correct_ans_id: 4
 },
 { // Question 6
-    id: 1, 
+    id: 6, 
+    image: "/client/assets/ElGreco.jpeg",
     question: "Who drew this artwork?", 
     answers: [
         {id: 1, ans: "El Greco"},
@@ -82,7 +78,8 @@ const data = [ {
     correct_ans_id: 1
 },
 { // Question 7
-    id: 1, 
+    id: 7, 
+    image: "/client/assets/BattleofAlexander.jpeg",
     question: "What famous historical battle does this piece of artwork depict?", 
     answers: [
         {id: 1, ans: "The Battle of San Romano"},
@@ -94,7 +91,8 @@ const data = [ {
     correct_ans_id: 3
 },
 { // Question 8
-    id: 1, 
+    id: 8, 
+    image: "/client/assets/Michelangelo.jpeg",
     question: "Which Italian artist is responsible for The Creation of Adam", 
     answers: [
         {id: 1, ans: "Giovanni Battista Piranesi"},
@@ -106,7 +104,8 @@ const data = [ {
     correct_ans_id: 2
 },
 { // Question 9
-    id: 1, 
+    id: 9, 
+    image: "/client/assets/Kandinsky.jpeg",
     question: "Which artist specialised in abstract/expressionism artwork?", 
     answers: [
         {id: 1, ans: "Frida Kahlo"},
@@ -118,7 +117,8 @@ const data = [ {
     correct_ans_id: 2
 },
 { // Question 10
-    id: 1, 
+    id: 10, 
+    image: "/client/assets/Basquiat.jpeg",
     question: "Which artist rose to fame in the 1980s?", 
     answers: [
         {id: 1, ans: "Eric Fischl"},
