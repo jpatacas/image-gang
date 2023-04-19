@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 const data = require('./data')
+const facts = require('./facts')
 
 const app = express();
 app.use(cors());
@@ -28,6 +29,12 @@ app.get('/data/:id', (req, res) => {
         res.status(404).json({error: `id ${idx} not found`})
     }
 
+})
+
+//get a random fact by id
+app.get('/scorepage', (req, res) => {
+    const randIdx = Math.floor(Math.random () * facts.length)
+    res.send(res.send(facts[randIdx]));
 })
 
 
