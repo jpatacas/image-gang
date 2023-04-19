@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-const bootstrap = require('bootstrap')
-
-console.log("Hello World")
-=======
 // Counter Function Attempt
 function sumScore(data) {
     let totalScore = 0;
@@ -14,4 +9,3 @@ function sumScore(data) {
 
 const totalScore = sumScore(data);
 console.log(totalScore);
->>>>>>> 0963372f38791eff7880930b0a8666ac1936c249
