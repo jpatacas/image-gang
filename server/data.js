@@ -2,22 +2,19 @@ const data = [ {
     id: 1, 
     question: "Who is the author of this painting?", 
     answers: [
-        {id: 1, ans: "Monet"}, // correct true || false
-        {id: 2, ans: "Picasso"}, 
-        {id: 3, ans: "Da Vinci"}
+        {id: 1, ans: "Monet", correct: false}, // correct true || false
+        {id: 2, ans: "Picasso", correct: true}, 
+        {id: 3, ans: "Da Vinci", correct: false}
     ]
-    , 
-    correct_ans_id: 2
 },
 {
     id: 2,
     question: "Is it raining?",
     answers:       [
-        {id: 1, ans: "Yes"},
-        {id: 2, ans: "no"}, 
-        {id: 3, ans: "maybe"}
-    ],
-    correct_ans_id: 1
+        {id: 1, ans: "Yes", correct: true},
+        {id: 2, ans: "no", correct: false}, 
+        {id: 3, ans: "maybe", correct: false}
+    ]
 }
 ]
 

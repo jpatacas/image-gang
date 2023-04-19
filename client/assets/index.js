@@ -1,11 +1,13 @@
 let score = 0;
 
+let question = 1
+
 //create the first question
-displayQuestion(1)
+displayQuestion(question)
 
 
 // creating the buttons - only for the first object
-createButtons(1).then( () => {
+createButtons(question).then( () => {
 
     let buttons = document.getElementsByClassName("answerButton")
 
@@ -17,6 +19,8 @@ createButtons(1).then( () => {
             console.log("clicked button: " + buttons[i].innerText)
             checkAnswer(1, buttons[i].innerText)
 
+            
+
             //move to next page, i.e. displaynextQuestion
             //if no more questions, display score page
         }
@@ -25,6 +29,8 @@ createButtons(1).then( () => {
 
 }
 ) 
+
+//function to go through the array of objects, 
 
 function createButton(answerText) {
     const button = document.createElement("button")
@@ -89,14 +95,15 @@ async function checkAnswer (qid, buttonText) { //input question id
 
     for (let i =0; i < answers.length; i++)
     {
+
         if (buttonText == answers[i].ans)
         {
             console.log(buttonText + " " + answers[i].ans )
-            if (answers[i].id == question.correct_ans_id)
+            if (answers[i].correct)//(answers[i].id == question.correct_ans_id)
             {
                 score += 1;
             }
-            console.log(`answer id: ${answers[i].id} correct andswer id: ${question.correct_ans_id}`)
+            console.log(`answer id: ${answers[i].id}`)// correct andswer id: ${question.correct_ans_id}`)
         }
 
     }
