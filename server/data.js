@@ -2,7 +2,7 @@ const data = [ {
     id: 1, 
     question: "Who is the author of this painting?", 
     answers: [
-        {id: 1, ans: "Monet"},
+        {id: 1, ans: "Monet"}, // correct true || false
         {id: 2, ans: "Picasso"}, 
         {id: 3, ans: "Da Vinci"}
     ]
