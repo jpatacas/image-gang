@@ -11,6 +11,13 @@ app.get('/', (req, res) => {
     res.send(`Welcome to Image Gang! There are ${data.length} questions available`);
 })
 
+//get all questions
+
+app.get('/data', (req, res) => {
+    res.json(data);
+})
+
+//get specific question by id
 app.get('/data/:id', (req, res) => {
     const idx = req.params.id;
 
@@ -22,5 +29,7 @@ app.get('/data/:id', (req, res) => {
     }
 
 })
+
+
 
 module.exports = app;
