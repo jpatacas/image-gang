@@ -4,6 +4,8 @@
 
 ### Server
 
-on `server` directory:
-`npm start` or
-`npm run dev`
+on `server` directory:  
+
+- `npm i`  
+
+- `npm start` or `npm run dev`
