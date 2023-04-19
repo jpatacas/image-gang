@@ -16,6 +16,9 @@ createButtons(1).then( () => {
         buttons[i].onclick = () => {
             console.log("clicked button: " + buttons[i].innerText)
             checkAnswer(1, buttons[i].innerText)
+
+            //move to next page, i.e. displaynextQuestion
+            //if no more questions, display score page
         }
 
     }
@@ -72,6 +75,8 @@ async function displayQuestion (id) {
     createQuestion(question.question)
 
 }
+
+//check if answers.correct == true instead
 
 //function that checks if correct answer id = clicked answer, increments score
 async function checkAnswer (qid, buttonText) { //input question id
