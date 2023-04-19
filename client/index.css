@@ -1,0 +1,53 @@
+
+body {
+  background-size: cover;
+  font-family: monospace;
+  padding: 1rem;
+  background-image: url(./assets/Girl-with-Balloon-1.webp);
+}
+
+section {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 70%;
+  min-height: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 1rem;
+
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* h1 {
+  font-size: 3rem;
+  margin-left: 20rem;
+
+} */
+
+img {
+  border-radius: 10px;
+}
+
+.question {
+  padding: 50px;
+  justify-content: center;
+  font-size:larger ;
+  flex-direction: column;
+
+}
+
+.buttons {
+  font-size: 5rem;
+  font-family: monospace;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10%;
+
+}
