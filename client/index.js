@@ -74,6 +74,7 @@ getNumberOfQuestions().then(dataLength => {
     }
 )
 
+//.style.display = "initial"
 async function updateButtons (id) { //id of outer object
 
     const response = await fetch (`http://localhost:3000/data/${id}`)
@@ -88,6 +89,7 @@ async function updateButtons (id) { //id of outer object
         // for (let j = 0; j <= buttons.length; j++)
         // {
         //     console.log(buttons[j])
+            buttons[i].hidden = false
             buttons[i].innerText = answers[i].ans
         // }
 
@@ -95,31 +97,31 @@ async function updateButtons (id) { //id of outer object
     
 }
 
-function createButton(answerText) {
-    const button = document.createElement("button")
-    button.className = "answerButton"
+// function createButton(answerText) {
+//     const button = document.createElement("button")
+//     button.className = "answerButton"
 
-    button.innerText = answerText
+//     button.innerText = answerText
 
-    const quizSection = document.getElementById("quiz")
+//     const quizSection = document.getElementById("quiz")
 
-    quizSection.appendChild(button)
+//     quizSection.appendChild(button)
 
-}
+// }
 
-async function createButtons(id) { //id of the outer object (q+a)
+// async function createButtons(id) { //id of the outer object (q+a)
 
-    const response = await fetch (`http://localhost:3000/data/${id}`)
-    const question = await response.json()
+//     const response = await fetch (`http://localhost:3000/data/${id}`)
+//     const question = await response.json()
 
-    const answers = question.answers // array of answers objects
+//     const answers = question.answers // array of answers objects
 
-    for (let i = 0; i< answers.length; i++)
-    {
-        createButton(answers[i].ans)
-    }
+//     for (let i = 0; i< answers.length; i++)
+//     {
+//         createButton(answers[i].ans)
+//     }
 
-}
+// }
 
 function createQuestion (questionText) {
     const question = document.createElement("p")
@@ -212,6 +214,7 @@ async function checkAnswer (qid, buttonText) { //input question id
     const res = await fetch("http://localhost:3000/data")
     const data = await res.json()
 
+    
     console.log(image[0].question)
    document.getElementById('#imageElement').src = data[1].image
 
