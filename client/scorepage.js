@@ -14,8 +14,10 @@ fetch("http://localhost:3000/scorepage")
   .catch((error) => console.error("FETCH ERROR:", error));
 
   displayFact()
+
+  document.getElementById("generateButton").addEventListener('click', displayFact)
  
-  async function displayFact(data) {
+  async function displayFact() {
     const factDiv = document.getElementById("final"); 
     let response = await fetch("http://localhost:3000/scorepage");
     const {fact} = await response.json(); // Destructure the "fact" value from the JSON response
