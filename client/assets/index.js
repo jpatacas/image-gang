@@ -1,36 +1,87 @@
 let score = 0;
 
-let question = 1
+let questionNumber = 1 // current question number
 
 //create the first question
-displayQuestion(question)
+displayQuestion(questionNumber)
 
-
-// creating the buttons - only for the first object
-createButtons(question).then( () => {
+//create the first buttons/answers  
+createButtons(questionNumber).then( () => {
 
     let buttons = document.getElementsByClassName("answerButton")
-
-    //console.log(buttons)
 
     for (let i = 0; i < buttons.length; i++) {
 
         buttons[i].onclick = () => {
             console.log("clicked button: " + buttons[i].innerText)
-            checkAnswer(1, buttons[i].innerText)
+            checkAnswer(i, buttons[i].innerText) 
 
-            
-
-            //move to next page, i.e. displaynextQuestion
-            //if no more questions, display score page
         }
+    }
+}
+)
+
+//create questions 2 until end
+getNumberOfQuestions().then(dataLength => {
+
+    for (questionNumber; questionNumber <= dataLength; questionNumber++) { 
+        
+        (function(index) {
+
+            setTimeout(function(){
+
+            //update the question displayed
+            updateDisplayQuestion(index)
+
+            // updated the buttons
+            updateButtons(index).then( () => {
+
+                let buttons = document.getElementsByClassName("answerButton")
+
+                //console.log(buttons)
+
+                for (let i = 0; i < buttons.length; i++) {
+
+                    buttons[i].onclick = () => {
+                        console.log("clicked button: " + buttons[i].innerText)
+
+                        console.log(questionNumber)
+                        checkAnswer(questionNumber -1, buttons[i].innerText) // questionNumber - 1?? needs more testing? 
+
+                    }
+                }
+            }
+            )
+
+                    //go to the last page - link href score?
+        //console.log("go to the last page")
+
+        }, index * 4.0 * 1000)})(questionNumber) // 4 seconds
 
     }
+    }
+)
 
+async function updateButtons (id) { //id of outer object
+
+    const response = await fetch (`http://localhost:3000/data/${id}`)
+    const question = await response.json()
+
+    const answers = question.answers // array of answers objects
+
+    const buttons = document.getElementsByClassName("answerButton") //get buttons html array of elements
+
+    for (let i = 0; i< answers.length; i++)
+    {
+        // for (let j = 0; j <= buttons.length; j++)
+        // {
+        //     console.log(buttons[j])
+            buttons[i].innerText = answers[i].ans
+        // }
+
+    }
+    
 }
-) 
-
-//function to go through the array of objects, 
 
 function createButton(answerText) {
     const button = document.createElement("button")
@@ -61,6 +112,7 @@ async function createButtons(id) { //id of the outer object (q+a)
 function createQuestion (questionText) {
     const question = document.createElement("p")
     question.className = "question"
+    question.id = "question"
 
     question.innerText = questionText
 
@@ -69,33 +121,49 @@ function createQuestion (questionText) {
     quizSection.appendChild(question)
 }
 
+function updateQuestion (questionText) {
+    const question = document.getElementById("question")
+
+    question.innerText = questionText
+}
+
 async function displayQuestion (id) {
 
     const response = await fetch (`http://localhost:3000/data/${id}`)
     const question = await response.json()
 
-    // console.log(question.question)
-
-    // return question.question
-
     createQuestion(question.question)
 
 }
 
-//check if answers.correct == true instead
+async function updateDisplayQuestion (id) {
+
+    const response = await fetch (`http://localhost:3000/data/${id}`)
+    const question = await response.json()
+
+    updateQuestion(question.question)
+
+}
+
+//get data/question length
+
+async function getNumberOfQuestions () {
+    const response = await fetch(`http://localhost:3000/data/`)
+    const data = await response.json()
+
+    //console.log(data.length)
+    return data.length
+}
 
 //function that checks if correct answer id = clicked answer, increments score
 async function checkAnswer (qid, buttonText) { //input question id
     const response = await fetch (`http://localhost:3000/data/${qid}`) //question id
     const question = await response.json()
 
-    //let score = 0; //needs to be a global variable?
-
     const answers = question.answers // array of answers objects
 
     for (let i =0; i < answers.length; i++)
     {
-
         if (buttonText == answers[i].ans)
         {
             console.log(buttonText + " " + answers[i].ans )
@@ -103,7 +171,7 @@ async function checkAnswer (qid, buttonText) { //input question id
             {
                 score += 1;
             }
-            console.log(`answer id: ${answers[i].id}`)// correct andswer id: ${question.correct_ans_id}`)
+            console.log(`answer id: ${answers[i].id}`)
         }
 
     }
