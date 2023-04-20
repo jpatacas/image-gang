@@ -13,7 +13,6 @@ app.get('/', (req, res) => {
 })
 
 //get all questions
-
 app.get('/data', (req, res) => {
     res.json(data);
 })
