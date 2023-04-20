@@ -11,9 +11,18 @@ const data = [ {
     id: 2,
     question: "Is it raining?",
     answers:       [
-        {id: 1, ans: "Yes", correct: true},
-        {id: 2, ans: "no", correct: false}, 
+        {id: 1, ans: "Yes", correct: false},
+        {id: 2, ans: "no", correct: true}, 
         {id: 3, ans: "maybe", correct: false}
+    ]
+},
+{
+    id: 3,
+    question: "What year is it?",
+    answers:       [
+        {id: 1, ans: "2021", correct: false},
+        {id: 2, ans: "2001", correct: false}, 
+        {id: 3, ans: "2023", correct: true}
     ]
 }
 ]
