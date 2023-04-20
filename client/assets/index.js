@@ -24,7 +24,7 @@ createButtons(questionNumber).then( () => {
 //create questions 2 until end
 getNumberOfQuestions().then(dataLength => {
 
-    for (questionNumber; questionNumber <= dataLength; questionNumber++) { 
+    for (let qIndex = 2; qIndex <= dataLength; qIndex++) { 
         
         (function(index) {
 
@@ -45,20 +45,25 @@ getNumberOfQuestions().then(dataLength => {
                     buttons[i].onclick = () => {
                         console.log("clicked button: " + buttons[i].innerText)
 
-                        console.log(questionNumber)
-                        checkAnswer(questionNumber -1, buttons[i].innerText) // questionNumber - 1?? needs more testing? 
+                        console.log(qIndex)
+                        checkAnswer(qIndex, buttons[i].innerText) // questionNumber - 1?? needs more testing? 
 
                     }
                 }
             }
             )
+            console.log(qIndex)
+            if (qIndex == dataLength)
+            {
+                console.log("go to the last page") //needs to be after the last page, this goes directly when last question is loaded
+            }
 
-                    //go to the last page - link href score?
-        //console.log("go to the last page")
 
-        }, index * 4.0 * 1000)})(questionNumber) // 4 seconds
+            }, index * 4.0 * 1000)})(qIndex) // 4 seconds
+            //console.log("go to the last page")
 
     }
+  
     }
 )
 
