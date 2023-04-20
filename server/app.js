@@ -38,7 +38,7 @@ app.get('/data/:id', (req, res) => {
 //get a random fact by id
 app.get('/scorepage', (req, res) => {
     const randIdx = Math.floor(Math.random () * facts.length)
-    res.send(res.send(facts[randIdx]));
+    res.send(facts[randIdx]);
 })
 
 
