@@ -1,32 +1,32 @@
 let score = 0;
 
-let questionNumber = 1 // current question number
+//let questionNumber = 1 // current question number
 
-let secondsInterval = 4.0 //how long to display question (s)
+let secondsInterval = 4.0 //how long to display each question (s)
 
 //create the first question
-displayQuestion(questionNumber)
+// displayQuestion(questionNumber)
 
-//create the first buttons/answers  
-createButtons(questionNumber).then( () => {
+// //create the first buttons/answers  
+// createButtons(questionNumber).then( () => {
 
-    let buttons = document.getElementsByClassName("answerButton")
+//     let buttons = document.getElementsByClassName("answerButton")
 
-    for (let i = 0; i < buttons.length; i++) {
+//     for (let i = 0; i < buttons.length; i++) {
 
-        buttons[i].onclick = () => {
-            console.log("clicked button: " + buttons[i].innerText)
-            checkAnswer(1, buttons[i].innerText) 
+//         buttons[i].onclick = () => {
+//             console.log("clicked button: " + buttons[i].innerText)
+//             checkAnswer(1, buttons[i].innerText) 
 
-        }
-    }
-}
-)
+//         }
+//     }
+// }
+// )
 
 //create questions 2 until end
 getNumberOfQuestions().then(dataLength => {
 
-    for (let qIndex = 2; qIndex <= dataLength; qIndex++) { 
+    for (let qIndex = 1; qIndex <= dataLength; qIndex++) { 
         
         (function(index) {
 
@@ -235,3 +235,4 @@ async function checkAnswer (qid, buttonText) { //input question id
 
 //   const totalScore = sumScore(data);
 //   console.log(totalScore);
+

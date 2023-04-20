@@ -1,3 +1,7 @@
+import  score  from "./index.js";
+
+console.log("total score: " + score)
+
 const randomiseButton = document.querySelector("btn-facts");
 randomiseButton.addEventListener("click", displayRandomFacts);
 
