@@ -2,6 +2,8 @@ let score = 0;
 
 let questionNumber = 1 // current question number
 
+let secondsInterval = 4.0 //how long to display question (s)
+
 //create the first question
 displayQuestion(questionNumber)
 
@@ -14,7 +16,7 @@ createButtons(questionNumber).then( () => {
 
         buttons[i].onclick = () => {
             console.log("clicked button: " + buttons[i].innerText)
-            checkAnswer(i, buttons[i].innerText) 
+            checkAnswer(1, buttons[i].innerText) 
 
         }
     }
@@ -52,14 +54,18 @@ getNumberOfQuestions().then(dataLength => {
                 }
             }
             )
-            console.log(qIndex)
+            console.log("current question index: "+ qIndex)
+
             if (qIndex == dataLength)
             {
-                console.log("go to the last page") //needs to be after the last page, this goes directly when last question is loaded
+                setTimeout(function () {
+                    console.log("go to the last page") //needs to be after the last page, this goes directly when last question is loaded
+                  }, secondsInterval * 1000);
+                //wait
+               
             }
 
-
-            }, index * 4.0 * 1000)})(qIndex) // 4 seconds
+            }, index * secondsInterval * 1000)})(qIndex) // 4 seconds
             //console.log("go to the last page")
 
     }
@@ -184,22 +190,3 @@ async function checkAnswer (qid, buttonText) { //input question id
     console.log(`score: ${score}`)
     return score;
 }
-
-//unused functions below
-
-
-
-// async function displayAnswer (qid) {
-//     const response = await fetch (`http://localhost:3000/data/${qid}`) //question id
-//     const question = await response.json()
-
-//     const answers = question.answers // array of answers objects
-
-//     for (let i =0; i < answers.length; i++)
-//     {
-//         console.log(answers[i].id + answers[i].ans)
-//     }
-
-//     //console.log(answer)
-
-// }
