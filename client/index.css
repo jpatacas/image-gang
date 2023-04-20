@@ -48,3 +48,10 @@ img {
   font-family: monospace;
   cursor: pointer;
 }
+
+#results-container, #facts-container, #resources-container {
+  padding: 5px;
+  border-style: solid;
+  border-color: black;
+  align-items: center;
+}

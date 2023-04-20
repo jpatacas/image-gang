@@ -21,4 +21,3 @@ fetch("http://localhost:3000/scorepage")
     factDiv.appendChild(heading);
   }
 
-displayFact();
