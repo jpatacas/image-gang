@@ -32,11 +32,23 @@ app.get('/data/:id', (req, res) => {
 })
 
 //get a random fact by id
+app.get('/facts', (req, res) => {
+    console.log('Facts', facts);
+    res.send(facts);
+    displayFacts(facts);
+ }) 
+
 app.get('/scorepage', (req, res) => {
+    console.log('Facts:', facts);
     const randIdx = Math.floor(Math.random () * facts.length)
-    res.send(res.send(facts[randIdx]));
-})
+    res.send(facts[randIdx]);
+  })
 
-
-
+ 
+ // show random fact 
+ /*
+ fetch("facts.js").then(res => {
+    return res.js();
+ })
+*/
 module.exports = app;
