@@ -1,32 +1,34 @@
 let score = 0;
 
-//let questionNumber = 1 // current question number
+// let questionNumber = 1 // current question number
 
 let secondsInterval = 4.0 //how long to display each question (s)
 
 //create the first question
-// displayQuestion(questionNumber)
+updateDisplayQuestion(1)
 
-// //create the first buttons/answers  
-// createButtons(questionNumber).then( () => {
+//create the first buttons/answers  
+updateButtons(1).then( () => {
 
-//     let buttons = document.getElementsByClassName("answerButton")
+    let buttons = document.getElementsByClassName("answerButton")
 
-//     for (let i = 0; i < buttons.length; i++) {
+    for (let i = 0; i < buttons.length; i++) {
 
-//         buttons[i].onclick = () => {
-//             console.log("clicked button: " + buttons[i].innerText)
-//             checkAnswer(1, buttons[i].innerText) 
+        buttons[i].onclick = () => {
+            console.log("clicked button: " + buttons[i].innerText)
+            checkAnswer(1, buttons[i].innerText) 
 
-//         }
-//     }
-// }
-// )
+        }
+    }
+}
+)
+
+displayImage(1)
 
 //create questions 2 until end
 getNumberOfQuestions().then(dataLength => {
 
-    for (let qIndex = 1; qIndex <= dataLength; qIndex++) { 
+    for (let qIndex = 2; qIndex <= dataLength; qIndex++) { 
         
         (function(index) {
 
@@ -166,6 +168,7 @@ async function updateDisplayQuestion (id) {
 function updateImage(imageUrl) {
   const image = document.getElementById('imageElement')
   image.src = imageUrl
+  image.hidden = false
 }
 
 async function displayImage(id) {

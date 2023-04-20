@@ -1,4 +1,7 @@
 
+
+//console.log("score:" + score)
+
 fetch("http://localhost:3000/scorepage")
   .then((response) => {
     if (response.ok) {
