@@ -53,3 +53,7 @@ img {
   font-family: monospace;
   cursor: pointer;
 }
+
+.playAgain {
+  margin-top: 20px;
+}

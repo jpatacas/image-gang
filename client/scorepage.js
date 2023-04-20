@@ -17,8 +17,9 @@ randomiseButton.addEventListener("click", displayRandomFacts);
 async function displayRandomFacts() {
     const response = await fetch("http://localhost:3000/scorepage")
     const facts = await response.json();
-    console.log(facts);
+    console.log(facts.fact);
 
-    const factElement = document.getElementById("facts");
-    factElement.textContent = facts["fact"];
+    const factElement = document.getElementById("#facts");
+    factElement.textContent = facts.fact;
+    console.log(facts[1].fact)
 }
