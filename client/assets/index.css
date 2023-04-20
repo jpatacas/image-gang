@@ -37,6 +37,15 @@ button {
   margin: 20px;
 }
 
+.container {
+  width: 500px;
+}
+
+.container img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
 img {
   border-radius: 10px;
 }

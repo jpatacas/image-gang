@@ -35,6 +35,8 @@ getNumberOfQuestions().then(dataLength => {
             //update the question displayed
             updateDisplayQuestion(index)
 
+            displayImage(index)
+
             // updated the buttons
             updateButtons(index).then( () => {
 
@@ -123,31 +125,33 @@ async function updateButtons (id) { //id of outer object
 
 // }
 
-function createQuestion (questionText) {
-    const question = document.createElement("p")
-    question.className = "question"
-    question.id = "question"
+// function createQuestion (questionText) {
+//     const question = document.createElement("p")
+//     question.className = "question"
+//     question.id = "question"
 
-    question.innerText = questionText
+//     question.innerText = questionText
 
-    const quizSection = document.getElementById("quiz")
+//     const quizSection = document.getElementById("quiz")
 
-    quizSection.appendChild(question)
-}
+//     quizSection.appendChild(question)
+// }
+
+
+
+// async function displayQuestion (id) {
+
+//     const response = await fetch (`http://localhost:3000/data/${id}`)
+//     const question = await response.json()
+
+//     createQuestion(question.question)
+
+// }
 
 function updateQuestion (questionText) {
-    const question = document.getElementById("question")
+  const question = document.getElementById("question")
 
-    question.innerText = questionText
-}
-
-async function displayQuestion (id) {
-
-    const response = await fetch (`http://localhost:3000/data/${id}`)
-    const question = await response.json()
-
-    createQuestion(question.question)
-
+  question.innerText = questionText
 }
 
 async function updateDisplayQuestion (id) {
@@ -156,6 +160,29 @@ async function updateDisplayQuestion (id) {
     const question = await response.json()
 
     updateQuestion(question.question)
+
+}
+
+function updateImage(imageUrl) {
+  const image = document.getElementById('imageElement')
+  image.src = imageUrl
+}
+
+async function displayImage(id) {
+  const res = await fetch(`http://localhost:3000/data/${id}`)
+  const data = await res.json()
+  ///const imageUrl = data.image
+
+  console.log(data.image)
+
+  //get the url
+
+
+  updateImage(data.image)
+//   console.log(image[0].question)
+//  document.getElementById('#imageElement').src = data[1].image
+
+//   theImage.innerHTML = image[0].image
 
 }
 
@@ -195,6 +222,8 @@ async function checkAnswer (qid, buttonText) { //input question id
 }
 
 
+
+
 // Display question
 
 
@@ -210,21 +239,7 @@ async function checkAnswer (qid, buttonText) { //input question id
 
 //   // Display Image
 
-  async function displayImage() {
-    const res = await fetch("http://localhost:3000/data")
-    const data = await res.json()
 
-    
-    console.log(image[0].question)
-   document.getElementById('#imageElement').src = data[1].image
-
-    theImage.innerHTML = image[0].image
-
-
-    // var img = document.createElement('img');
-    // img.src = data[1].image;
-    // document.img.appendChild(img);
-}
 
 
 // // Counter Function Attempt
