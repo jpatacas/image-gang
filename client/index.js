@@ -1,6 +1,6 @@
 let score = 0;
 
-let secondsInterval = 4.0; //how long to display each question (s)
+let secondsInterval = 6.0; //how long to display each question (s)
 
 //create the first question
 updateDisplayQuestion(1);
