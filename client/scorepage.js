@@ -1,6 +1,3 @@
-
-
-
 fetch("http://localhost:3000/scorepage")
   .then((response) => {
     if (response.ok) {
@@ -9,34 +6,51 @@ fetch("http://localhost:3000/scorepage")
       throw new Error("NETWORK RESPONSE ERROR");
     }
   })
-  .then(data => {
+  .then((data) => {
     //console.log(data);
-    displayFact(data)
+    displayFact(data);
   })
   .catch((error) => console.error("FETCH ERROR:", error));
 
-  displayFact()
+displayFact();
 
-  document.getElementById("generateButton").addEventListener('click', displayFact)
- 
-  async function displayFact() {
-    const factDiv = document.getElementById("final"); 
-    let response = await fetch("http://localhost:3000/scorepage");
-    const {fact} = await response.json(); // Destructure the "fact" value from the JSON response
-    const heading = document.getElementById("fact");
-    heading.innerHTML = fact;
-    factDiv.appendChild(heading);
-  }
+document
+  .getElementById("generateButton")
+  .addEventListener("click", displayFact);
 
-async function displayFinalScore () {
-    const response = await fetch(`http://localhost:3000/score/`)
-    const score = await response.json()
+async function displayFact() {
+  const factDiv = document.getElementById("final");
+  let response = await fetch("http://localhost:3000/scorepage");
+  const { fact } = await response.json(); // Destructure the "fact" value from the JSON response
+  const heading = document.getElementById("fact");
+  heading.innerHTML = fact;
+  factDiv.appendChild(heading);
+}
 
-    console.log(score)
+async function displayFinalScore() {
+  const response = await fetch(`http://localhost:3000/score/`);
+  const score = await response.json();
 
-    document.getElementById("finalScore").innerText = score.score + "/10"
+  console.log(score);
 
-    return score
-} 
+  document.getElementById("finalScore").innerText = score.score + "/10";
 
-displayFinalScore()
+  //clear the score after (i.e. post score = 0)
+  const scoreData = {
+    score: 0,
+  };
+
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(scoreData),
+  };
+
+  const response2 = fetch("http://localhost:3000/score", options);
+
+  return score;
+}
+
+displayFinalScore();
