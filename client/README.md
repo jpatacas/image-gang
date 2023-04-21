@@ -29,8 +29,6 @@ Project Title: Image Gang - The Picture Quiz
   -- GitHub
   -- HTML, CSS
 
-// Process:
-
 // License: Please refer to LICENSE.txt file in client directory for relevant project license.
 
 // Screenshots:
