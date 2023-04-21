@@ -214,6 +214,23 @@ async function checkAnswer (qid, buttonText) { //input question id
             if (answers[i].correct)//(answers[i].id == question.correct_ans_id)
             {
                 score += 1;
+                //post the score to the server
+
+                const scoreData = {
+                  score: score
+              }
+            
+              const options = {
+                  method: "POST",
+                  headers: {
+                      "Content-Type": "application/json"
+                  },
+                  body: JSON.stringify(scoreData)
+              }
+            
+              const response = fetch("http://localhost:3000/score", options)
+            
+
             }
             console.log(`answer id: ${answers[i].id}`)
         }

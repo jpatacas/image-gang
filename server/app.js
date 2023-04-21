@@ -3,6 +3,8 @@ const cors = require('cors');
 
 const data = require('./data')
 const facts = require('./facts')
+const score = require('./score')
+
 
 const app = express();
 app.use(cors());
@@ -36,22 +38,31 @@ app.get('/data/:id', (req, res) => {
 })
 
 //get a random fact by id
-// app.get('/scorepage', (req, res) => {
-//     const randIdx = Math.floor(Math.random () * facts.length)
-//     res.send(facts[randIdx]);
-// })
-
-//get a random fact by id
 app.get('/facts', (req, res) => {
-    console.log('Facts', facts);
+    //console.log('Facts', facts);
     res.send(facts);
     displayFacts(facts);
  }) 
 
 app.get('/scorepage', (req, res) => {
-    console.log('Facts:', facts);
+    //console.log('Facts:', facts);
     const randIdx = Math.floor(Math.random () * facts.length)
     res.send(facts[randIdx]);
   })
+
+app.get('/score', (req, res) => {
+    //console.log(score)
+    res.send(score)
+})
+
+//update the score
+app.post('/score', (req, res) => {
+    //score.score = req.body;
+    score.score = req.body.score;
+
+    console.log(score)
+
+    res.json(score);
+  });
 
 module.exports = app;
