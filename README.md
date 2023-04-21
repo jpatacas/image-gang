@@ -41,7 +41,7 @@ Please refer to LICENSE.txt file in client directory for relevant project licens
 
 - Please refer to below images for visual example of project webpage in use;
 
-![Question Page Example Screenshot](./client/assets/Question_page_screenshot.png)
+![Question Page Example Screenshot](./client/assets/Question_page_screenshot.PNG)
 ![Question Page Example Screenshot](./client/assets/Score_page_screenshot.png)
 
 ### Wins and Challenges:
