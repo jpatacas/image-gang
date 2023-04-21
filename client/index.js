@@ -17,6 +17,7 @@ updateButtons(1).then(() => {
   }
 });
 
+//display first image
 displayImage(1);
 
 //create questions 2 until end
@@ -33,34 +34,30 @@ getNumberOfQuestions().then((dataLength) => {
         updateButtons(index).then(() => {
           let buttons = document.getElementsByClassName("answerButton");
 
-          //console.log(buttons)
-
           for (let i = 0; i < buttons.length; i++) {
             buttons[i].onclick = () => {
               console.log("clicked button: " + buttons[i].innerText);
 
               console.log(qIndex);
-              checkAnswer(qIndex, buttons[i].innerText); // questionNumber - 1?? needs more testing?
+              checkAnswer(qIndex, buttons[i].innerText);
             };
           }
         });
-        console.log("current question index: " + qIndex);
+        //console.log("current question index: " + qIndex);
 
         if (qIndex == dataLength) {
           setTimeout(function () {
             window.location.href = "./scorepage.html";
-            console.log("go to the last page"); //needs to be after the last page, this goes directly when last question is loaded
+            //console.log("go to the last page"); 
           }, secondsInterval * 1000);
-          //wait
         }
       }, index * secondsInterval * 1000);
-    })(qIndex); // 4 seconds
+    })(qIndex);
   }
 });
 
-//.style.display = "initial"
+
 async function updateButtons(id) {
-  //id of outer object
 
   const response = await fetch(`http://localhost:3000/data/${id}`);
   const question = await response.json();
@@ -77,7 +74,6 @@ async function updateButtons(id) {
 
 function updateQuestion(questionText) {
   const question = document.getElementById("question");
-
   question.innerText = questionText;
 }
 
@@ -97,17 +93,9 @@ function updateImage(imageUrl) {
 async function displayImage(id) {
   const res = await fetch(`http://localhost:3000/data/${id}`);
   const data = await res.json();
-  ///const imageUrl = data.image
-
-  console.log(data.image);
-
-  //get the url
 
   updateImage(data.image);
-  //   console.log(image[0].question)
-  //  document.getElementById('#imageElement').src = data[1].image
 
-  //   theImage.innerHTML = image[0].image
 }
 
 //get data/question length
@@ -132,10 +120,8 @@ async function checkAnswer(qid, buttonText) {
     if (buttonText == answers[i].ans) {
       console.log(buttonText + " " + answers[i].ans);
       if (answers[i].correct) {
-        //(answers[i].id == question.correct_ans_id)
         score += 1;
         //post the score to the server
-
         const scoreData = {
           score: score,
         };
