@@ -1,4 +1,4 @@
-# Project Title: Image Gang - The Picture Quiz
+# Image Gang - The Picture Quiz
 
 ## Project Description:
 
@@ -21,7 +21,7 @@ on `server` directory:
 
 ### Client
 
-- on `client` directory: Right click and click "Open With Live Server" in order to load webpage on default browser
+- on `client` directory: Use "Open With Live Server" option in VS Code in order to load webpage on default browser
 
 ### Technologies:
 
@@ -43,10 +43,6 @@ Please refer to LICENSE.txt file in client directory for relevant project licens
 
 ![Question Page Example Screenshot](./client/assets/Question_page_screenshot.PNG)
 ![Question Page Example Screenshot](./client/assets/Score_page_screenshot.png)
-
-### Wins and Challenges:
-
-### Badges:
 
 ### Contribution Guide:
 
