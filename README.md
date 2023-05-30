@@ -1,21 +1,11 @@
-# Image Gang - The Picture Quiz
-
-## Project Description:
-
-- This project entails a picture-based quiz game playable online, where the user views provided images
-  and answers questions that are based around the topic of the provided pictures.
-- Final version of the game is expected to have 3 different picture quiz games based on 3 different non-STEM subjects, namely art, music and english.
-- This early version of the code, however, focuses on building a functional version of the art game only.
-  Questions range from naming the responsible artist for painting displayed, when painting was completed, etc
-- User will accumulate points for every correct answer and, after 10 rounds, will be directed to scorepage where final score will
-  be displayed.
-- Scorepage will also display random knowledgable facts about the subject for further educational value.
+# Image Gang
 
 ## Installation and usage:
 
 ### Server
 
-on `server` directory:  
+ `cd` into `server` directory:  
+ - `npm i`
 - `npm start` or
 `npm run dev`
 
@@ -25,9 +15,9 @@ on `server` directory:
 
 ### Technologies:
 
-- This project make use of various technologies, including the following:  
+- This project makes use of various technologies, including the following:  
   - JavaScript
-  - HTML, CSS  
+  - HTML, CSS  cd ..
   - Express API  
   - Node  
   - Git  
