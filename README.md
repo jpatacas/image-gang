@@ -17,7 +17,7 @@
 
 - This project makes use of various technologies, including the following:  
   - JavaScript
-  - HTML, CSS  cd ..
+  - HTML, CSS
   - Express API  
   - Node  
   - Git  
@@ -36,7 +36,7 @@ Please refer to LICENSE.txt file in client directory for relevant project licens
 
 ### Contribution Guide:
 
-- Joao Patacas -- JavaScript (client side, server side) contributions for question pages, scorepages, inital project setup
+- João Patacas -- JavaScript (client side, server side) contributions for question pages, scorepages, inital project setup
 - Angela Demiri -- HTML, CSS contributions for scorepage; Random fact API crafting
 - Francesca Adu -- HTML, CSS contributions for scorepage; Question and answer API crafting
 - George Hill -- HTML, CSS, JavaScript (client side) contributions for question pages
